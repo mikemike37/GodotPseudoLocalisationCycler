@@ -14,10 +14,11 @@ enum PSEUDO_SETTINGS {
 var current_pseudo_mode: PSEUDO_SETTINGS = PSEUDO_SETTINGS.DISABLED
 
 func _input(event):
-    if event.is_pressed():
-        match event.as_text():
-            "Z":
-                SysLoc.cycle_pseudolocalisation()
+    if OS.is_debug_build():
+        if event.is_pressed():
+            match event.as_text():
+                "Z":
+                    SysLoc.cycle_pseudolocalisation()
 
 ## changes pseudolocalisation between OFF and various psuedolocalisation styles
 func cycle_pseudolocalisation() -> void:
